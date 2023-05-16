@@ -44,20 +44,28 @@ Na consola Python podemos importar a classe Tarefa e criar instâncias, guardá-
 ```Python
 from tarefas.models import Tarefa # importação da classe Tarefa, para manipular a BD
 
+Tarefa.objects.create(titulo='Ir passear', prioridade=1) # cria uma tarefa e guarda-a na base de dados
+
 t1 = Tarefa(titulo='Ir correr', prioridade=2) # cria nova tarefa
-t1.save()  # •	o Django não altera a BD até chamar explicitamente save(). corresponde à instrução SQL UPDATE
+t1.save()  # o Django não altera a BD até chamar explicitamente save(). corresponde à instrução SQL UPDATE
+
 t2 = Tarefa(titulo='Ir ao cinema', prioridade=2) # cria nova tarefa
 t2.save()
+
 t3 = Tarefa(titulo='Fazer laboratório de PW', prioridade=2) # cria nova tarefa
 t3.save()
-t4 = Tarefa(titulo='Ir passear', prioridade=1); t4.save()  # cria nova tarefa
 
-t3.prioridade = 3; t3.save() # alterar valor de atributo
+t3.prioridade = 3 # alterar valor de atributo 
+t3.save()  # devemos gravar novamente!
 
 tarefas = Tarefa.objects.all()   # retorna uma QuerySet, coleção de objetos da base de dados
+
 t1.delete() # apaga t1 objeto da tabela
+
 prioritarias = Tarefa.objects.filter(prioridade=1)  # Retorna um novo QuerySet dos objetos que correspondem aos kwargs de pesquisa fornecidos.
+
 tarefa = Tarefa.objects.get(pk=1) # retorna instância específica
+
 ordenadas = sorted(Tarefa.objects.all(), key=lambda objeto:objeto.prioridade)
 ```
 
