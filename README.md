@@ -4,7 +4,7 @@
 
 * Aplicação (o código está disponível neste GitHub) para gestão de tarefas, permitindo, criar, alterar e apagar tarefas, que usa um base de dados.
 * Veja um [vídeo da construção da aplicação](https://educast.fccn.pt/vod/clips/1m7vvfknq2/link_box_h?locale=en), que tem capítulos para os vários tópicos abordados. 
-* Este documento descreve os detalhes da arquitetura MVT no funcionamento da aplicação. Clique nos links para visualizar o código referenciada. 
+* Este documento descreve os detalhes da arquitetura MVT no funcionamento da aplicação. Clique nos links para visualizar excertos de código da aplicação. 
 
 ## Primeiros passos para correr aplicação
 1. Abra a linha de comandos (PowerShell ou cmd)
