@@ -21,6 +21,20 @@
 
 # Models
 1. A Web App Tarefas tem como ponto de partida o ficheiro [`models.py`](https://github.com/ULHT-PW/pw-aula-django-02/blob/master/tarefas/models.py), onde a classe Tarefa especifica os atributos duma tarefa. Explore mais sobre este tópico [aqui](https://docs.djangoproject.com/en/3.2/topics/db/models/) 
+
+```Python
+from django.db import models
+
+class Tarefa(models.Model):
+    titulo = models.CharField(max_length=200)
+    prioridade = models.IntegerField(default=1)
+    concluido = models.BooleanField(default=False)
+    criado = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titulo
+   ```
+
 2. Umavez criada a classe Tarefa, esta deve ser ativada. Sempre que criamos ou modificamos um modelo, devemos atualizar o Django com dois passos:
     * `python manage.py makemigrations tarefas`
     * `python manage.py migrate tarefas`
