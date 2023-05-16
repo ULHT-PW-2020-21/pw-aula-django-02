@@ -46,8 +46,8 @@ class Tarefa(models.Model):
 7. As tarefas são instâncias da classe Tarefa, que ficam como registos da tabela Tarefa da base de dados.
 
 
-# Manipulação da BD da consola Python
-1. uma vez criados os seus modelos de dados, o Django dá-lhe uatomaticamente uma API de abstração de dados que lhe permite criar, recuperar, atualizar e apagar objetos.
+# Manipulação da BD na consola Python
+1. uma vez criados os seus modelos de dados, o Django dá-lhe automaticamente uma API de abstração de dados que lhe permite criar, recuperar, atualizar e apagar objetos (ORM).
 2. Para representar os dados da tabela da BD em objetos Python, Django usa um sistema intuitivo:
     * Uma classe de modelo representa uma tabela da BD
     * uma instância dessa classe representa um registro particular na tabela da BD.
