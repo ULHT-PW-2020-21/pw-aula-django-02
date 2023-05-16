@@ -129,7 +129,6 @@ class TarefaForm(ModelForm):
 
 3. Na função views, é possível criar uma instância de um formulário [formulário preenchido](https://github.com/ULHT-PW/pw-aula-django-02/blob/master/tarefas/views.py#L17), que servirá para recolher os dados inseridos pelo utilizador, que se válidos são guardados na base de dados.
 
-
 # Views e respetivos Templates para operações CRUD
 1. Em [`views.py`](https://github.com/ULHT-PW/pw-aula-django-02/blob/master/tarefas/views.py) existem 4 funções view que permitem listar, criar, editar e apagar tarefas (operações CRUD):
 ```Python 
@@ -272,6 +271,9 @@ urlpatterns = [
 ]
 ```
 
+# Campos de imagem e ficheiro
+* Pode também adicionar à classe um campo de imagem ou de ficheiro. 
+* Mais detalhes sobre como se configura a aplicação para sua utilização estão [aqui](https://github.com/ULHT-PW/pw-usando-ImageField).
 
 # Templates
 1. Os templates usam um layout base [`base.html`](https://github.com/ULHT-PW/pw-aula-django-02/blob/master/tarefas/templates/tarefas/base.html), que é estendido por todos os templates da aplicação
