@@ -71,13 +71,14 @@ ordenadas = sorted(Tarefa.objects.all(), key=lambda objeto:objeto.prioridade)
 
 # Formulário
 1. Em [`forms.py`](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py) é definida a classe TarefaForm, classe de formulário criada com base na classe Tarefa. É uma forma muito eficiente e simples para criar instâncias formulário. 
-    * criar um objeto [formulário preenchido](https://github.com/ULHT-PW/pw-aula-django-02/blob/master/tarefas/views.py#L17) com dados enviados pelo utilizador através de um template, que se válidos são guardados na base de dados.
-    * 
+
 2. É possível customizar o formulário a apresentar:
     * em [fields](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py#L9) podemos escolher os atributos a apresentar no formulário: sob a forma duma lista de atributos, ou a string '__all__' para indicar que queremos todos os campos da classe.
     * [`labels`](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py#L18) identifica as etiquetas a ser apresentadas ao lado da caixa de input, em substituição do nome do atributo da classe.
     * [`widgets`](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py#L11) permitem especificar pares propriedade=valor do elemento HTML `<input>` de um determinado campo do formulário; valores para propriedades tais como `class`, `placeholder`, valores `max` e `min`. 
     * [`help_texts`](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py#L25) especificam texto auxiliar dum determinado campo do formulário, a ser apresentado por baixo do formulário.
+
+3. Na função views, é possível criar uma instância de um formulário [formulário preenchido](https://github.com/ULHT-PW/pw-aula-django-02/blob/master/tarefas/views.py#L17), que servirá para recolher os dados inseridos pelo utilizador, que se válidos são guardados na base de dados.
 
 
 # Views e respetivos Templates para operações CRUD
