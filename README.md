@@ -72,6 +72,41 @@ ordenadas = sorted(Tarefa.objects.all(), key=lambda objeto:objeto.prioridade)
 # Formulário
 1. Em [`forms.py`](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py) é definida a classe TarefaForm, classe de formulário criada com base na classe Tarefa. É uma forma muito eficiente e simples para criar instâncias formulário. 
 
+```Python
+from django import forms
+from django.forms import ModelForm
+from .models import Tarefa
+
+class TarefaForm(ModelForm):
+    class Meta:
+        model = Tarefa   # especifica a classe de models.py à qual este formulário está associado
+                
+        # fields permite especificar os campos da classe que queremos que apareçam no formulário. 
+        #   - '__all__' apresenta todos.
+        #   - podemos ter um subset: fields = ['titulo', 'prioridade']
+        # alternativamente, pode-se usar a variável exclude para especificar os campos que se pretendem excluir do formulário 
+        fields = '__all__'  
+   
+        # Para um conjunto de propriedade da classe (titulo, prioridade, concluido, etc), 
+        # o dicionário widgets permite configurar o elemento HTML input correspondente, 
+        # através de um dicionario de atributos de formatação (especificação de classes, placeholder, propriedades, etc).
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'descrição da tarefa...'}),
+            'prioridade': forms.NumberInput(attrs={'class': 'form-control', 'max': 3, 'min': 1}),
+        }
+
+        # o dicionário labels especifica o texto a exibir junto à janela de inserção
+        labels = {
+            'titulo': 'Título',
+            'concluido': 'Concluída',
+        }
+
+        # o dicionário help_texts contém, para um atributo, um texto auxiliar a apresentar por baixo da janela de inserção
+        help_texts = {
+            'prioridade': 'prioridade: baixa=1, media=2, alta=3',
+        }
+ ```
+
 2. É possível customizar o formulário a apresentar:
     * em [fields](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py#L9) podemos escolher os atributos a apresentar no formulário: sob a forma duma lista de atributos, ou a string '__all__' para indicar que queremos todos os campos da classe.
     * [`labels`](https://github.com/ULHT-PW/pw-aula-django-02/blob/21a2f865f02eeb36007ac3e4916cc0dc69835c6b/tarefas/forms.py#L18) identifica as etiquetas a ser apresentadas ao lado da caixa de input, em substituição do nome do atributo da classe.
