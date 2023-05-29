@@ -206,7 +206,7 @@ def nova_tarefa_view(request):
     form = TarefaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('tarefas:home'))
+        return redirect('tarefas:home')
     context = {'form': form}
     return render(request, 'tarefas/nova.html', context)
 ```
