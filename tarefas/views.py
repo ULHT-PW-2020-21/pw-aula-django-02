@@ -1,6 +1,4 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from django.urls import reverse
+from django.shortcuts import render, redirect
 
 from .models import Tarefa
 from .forms import TarefaForm
@@ -17,7 +15,7 @@ def nova_tarefa_view(request):
     form = TarefaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('tarefas:home'))
+        return redirect('tarefas:home')
 
     context = {'form': form}
 
