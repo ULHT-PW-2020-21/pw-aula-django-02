@@ -80,7 +80,7 @@ prioritarias = Tarefa.objects.filter(prioridade=1)  # Retorna um novo QuerySet d
 
 tarefa = Tarefa.objects.get(pk=1) # retorna instância específica
 
-ordenadas = sorted(Tarefa.objects.all(), key=lambda objeto:objeto.prioridade)
+ordenadas = Tarefa.objects.all().order_by('prioridade')
 ```
 
 # Formulário
