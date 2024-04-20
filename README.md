@@ -1,4 +1,4 @@
-# Aula #2 de Django: Web app Tarefas 
+# Aplicação Tarefas 
 
 ![image](https://github.com/ULHT-PW/pw-aula-django-02/assets/42048382/ea0c659a-6306-4192-b7a4-0b1a4dc203d5)
 
